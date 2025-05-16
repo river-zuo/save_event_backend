@@ -1,0 +1,26 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    driver-class-name: org.sqlite.JDBC
+    url: jdbc:sqlite:events.db
+    username: sa
+    password: sa
+  sql:
+    init:
+      schema-locations: classpath:schema.sql
+      mode: always
+      data-locations: 
+
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    db-config:
+      id-type: auto
+  mapper-locations: classpath*:/mapper/**/*.xml
+
+# spring.sql.init.schema-locations=classpath:schema.sql
+# spring.sql.init.mode=always 
